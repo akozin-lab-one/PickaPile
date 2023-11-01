@@ -1,5 +1,5 @@
 import axios from "axios";
 
 export const api = axios.create({
-    baseURL: 'https://picka-pile.vercel.app'
+    baseURL: 'www.picka-pile.vercel.app'
 })
