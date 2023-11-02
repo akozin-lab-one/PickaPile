@@ -57,6 +57,10 @@ const Answer = ({ questions, answers }) => {
     setText(textRes);
   };
 
+  const closeModal = () => {
+    setContainerVisible(false);
+  };
+
   if (
     JSON.stringify(answers) !== "[]" &&
     JSON.stringify(questions) !== "[]" &&
@@ -76,7 +80,7 @@ const Answer = ({ questions, answers }) => {
           <p><i className="fa-regular fa-eye"></i> <span className="text-xs"> 0 views</span></p>
         </div>
         <p className="my-2 leading-7 tracking-wide">{Title[0].description}</p>
-        <div className="h-auto lg:h-[60%] xl:h-[48%] mt-2 mb-7 grid grid-cols-1 xl:grid-cols-4 lg:grid-cols-4 md:grid-cols-4 gap-x-2 gap-y-2 mx-auto">
+        <div className="h-auto lg:h-[60%] xl:h-[48%] mt-2 mb-7 grid grid-cols-4 xl:grid-cols-4 lg:grid-cols-4 md:grid-cols-4 gap-x-2 gap-y-2 mx-auto">
           {Array.isArray(res)
             ? res.map((re) => {
                 return [
@@ -85,7 +89,7 @@ const Answer = ({ questions, answers }) => {
                       onClick={() => {
                         getPictureId(re.ansId);
                       }}
-                      className="xl:w-[280px] mt-8 xl:mt-0 xl:h-[100%] md:w-[85%] md:h-[85%] shadow-gray-600 hover:scale-105 cursor-pointer hover:duration-75  rounded-xl hover:drop-shadow"
+                      className="xl:w-[280px] mt-8 xl:mt-0 xl:h-[100%] md:w-[85%] md:h-[85%] w-[150px] shadow-gray-600 hover:scale-105 cursor-pointer hover:duration-75  rounded-xl hover:drop-shadow"
                       src={re.imageUrl}
                       alt=""
                     />
@@ -100,20 +104,42 @@ const Answer = ({ questions, answers }) => {
               </NavLink>
             </div>
           {containerVisible && (
-            <div className="container w-[100%] h-[100%] mb-10 bg-gray-200 mx-auto md:h-[50%] grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2 gap-y-0">
-                <img
-                  className="w-[70%] xl:w-[50%] lg:w-[50%] md:w-[50%] my-2 h-[55%] mx-auto "
+            <div>
+               <div className="container hidden md:block lg:block xl:block mb-10 bg-gray-200 mx-auto md:h-[50%] md:grid lg:grid xl:grid md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2 gap-y-0">
+                 <img
+                  className="xl:w-[50%] xl:h-[60%] lg:w-[50%] md:w-[50%] md:h-[60%] my-2 mx-auto "
                   src={result[result.length - 1].imageUrl}
                   alt=""
                 />
 
-                <div className="mx-auto xl:py-8 py-0 h-[50%] row-start-1">
+                <div className="mx-auto xl:py-8 py-0  row-start-1">
                   <h3 className="text-center">{text[text.length - 1].AnswerName}</h3>
                   <p className="px-2 xl:text-base lg:text-base md:text-xs text-xs">
                   {text[text.length - 1].AnswerDesp}
                   </p>
                 </div>
-
+            </div>
+            <div className="md:hidden lg:hidden xl:hidden fixed inset-0 flex items-center justify-center z-50">
+                <div className="modal-container h-[420px] bg-white w-96 rounded shadow-lg p-4 z-50">
+                  <div className="text-center">
+                    <button
+                      className="text-red-500 hover:text-red-700 cursor-pointer my-2"
+                      onClick={closeModal}
+                    >
+                      နောက်သို့
+                    </button>
+                  </div>
+                  <h3 className="text-center">{text[text.length - 1].AnswerName}</h3>
+                  <img
+                  className="w-[80px] h-[80px] mx-auto"
+                  src={result[result.length - 1].imageUrl}
+                  alt=""
+                />
+                  <p className="px-2 xl:text-base lg:text-base md:text-xs text-xs">
+                  {text[text.length - 1].AnswerDesp}
+                  </p>
+                </div>
+              </div>
             </div>
           )}
           <Footer/>
