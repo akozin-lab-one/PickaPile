@@ -78,7 +78,7 @@ const Questions = ({ questions, answers }) => {
                 return [
                   <div
                     key={que.Id}
-                    className="bg-gray-300 rounded-lg w-[70%] md:w-[210px] lg:w-[240px] xl:w-[300px] mx-auto"
+                    className="bg-gray-300 rounded-lg w-[85%] md:w-[210px] lg:w-[240px] xl:w-[300px] mx-auto"
                   >
                     <img
                       className="rounded-t-lg w-[100%] md:w-[210px] lg:w-[240px] xl:w-[300px] h-[300px]"

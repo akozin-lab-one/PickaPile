@@ -56,6 +56,7 @@ const Answer = ({ questions, answers }) => {
     console.log(textRes);
     setText(textRes);
   };
+
   if (
     JSON.stringify(answers) !== "[]" &&
     JSON.stringify(questions) !== "[]" &&
@@ -70,9 +71,9 @@ const Answer = ({ questions, answers }) => {
       <div className="container w-[85%] mx-auto h-screen">
         <h3 className="my-2 font-extra-bold text-xl">{Title[0].Name}</h3>
         <div className="flex w-[100%] md:w-[40%] lg:w-[40%] xl:w-[40%] my-2 justify-between">
-          <p><i class="fa-solid fa-user"></i><span className="text-xs">By Admin</span></p>
-          <p><i class="fa-regular fa-comment"></i> <span className="text-xs">0 Comment</span></p>
-          <p><i class="fa-regular fa-eye"></i> <span className="text-xs"> 0 views</span></p>
+          <p><i className="fa-solid fa-user"></i><span className="text-xs">By Admin</span></p>
+          <p><i className="fa-regular fa-comment"></i> <span className="text-xs">0 Comment</span></p>
+          <p><i className="fa-regular fa-eye"></i> <span className="text-xs"> 0 views</span></p>
         </div>
         <p className="my-2 leading-7 tracking-wide">{Title[0].description}</p>
         <div className="h-auto lg:h-[60%] xl:h-[48%] mt-2 mb-7 grid grid-cols-1 xl:grid-cols-4 lg:grid-cols-4 md:grid-cols-4 gap-x-2 gap-y-2 mx-auto">
@@ -99,16 +100,16 @@ const Answer = ({ questions, answers }) => {
               </NavLink>
             </div>
           {containerVisible && (
-            <div className="container w-[100%] h-[100%] mb-10 bg-gray-200 mx-auto md:h-[50%] grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2">
+            <div className="container w-[100%] h-[100%] mb-10 bg-gray-200 mx-auto md:h-[50%] grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2 gap-y-0">
                 <img
-                  className="w-[70%] xl:w-[50%] lg:w-[50%] md:w-[50%] my-2 h-[50%] mx-auto "
+                  className="w-[70%] xl:w-[50%] lg:w-[50%] md:w-[50%] my-2 h-[55%] mx-auto "
                   src={result[result.length - 1].imageUrl}
                   alt=""
                 />
 
-                <div className="mx-auto xl:py-8 py-0 h-[50%]">
+                <div className="mx-auto xl:py-8 py-0 h-[50%] row-start-1">
                   <h3 className="text-center">{text[text.length - 1].AnswerName}</h3>
-                  <p className="px-2 md:text-sm">
+                  <p className="px-2 xl:text-base lg:text-base md:text-xs text-xs">
                   {text[text.length - 1].AnswerDesp}
                   </p>
                 </div>
